@@ -28,6 +28,10 @@ namespace Parole
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddTransient<IServices, MainService>();
+            //services.AddScoped<IServices, Services>();
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -35,7 +39,7 @@ namespace Parole
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
 
-            services.AddTransient<IServices, Services>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
