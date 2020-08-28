@@ -20,11 +20,12 @@ namespace Parole.Models
         public DateTime SubmitDate { get; set; } = DateTime.UtcNow;
 
         public int IdSubject { get; set; }
-
-        public List<User> Users { get; set; }
+        public int IdUser { get; set; }
 
         
         //navigation properties
         public Subject Subject { get; set; }
+
+        public User User { get; set; }
     }
 }
