@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Parole.Models;
 
 namespace Parole.Data
 {
@@ -12,5 +13,10 @@ namespace Parole.Data
             : base(options)
         {
         }
+
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Response> Responses { get; set; }
+
     }
 }
