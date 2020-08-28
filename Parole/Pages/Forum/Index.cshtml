@@ -8,8 +8,25 @@
 <hr />
 
 <div class="container-fluid">
-    <div class="container card-body shadow col-sm-8 bg-danger">
-        <h3>----Sujet-----</h3>
-    </div>
+    @if (Object.ReferenceEquals(Model.Subjects, null))
+    {
+        @foreach (var subject in Model.Subjects)
+        {
+            <div class="container card shadow col-sm-8 bg-danger">
+                <div class="card-body">
+                    <h3>@Html.DisplayFor(s => subject.Title)</h3>
+                </div>
+                <div class="card-footer">
+                    <small>@Html.DisplayFor(s => subject.DateDAjout)</small>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="container card-body shadow col-sm-8 bg-danger">
+            <h3 class="text-center">Pas de sujet disponible pour le moment</h3>
+        </div>
+    }
 </div>
 
